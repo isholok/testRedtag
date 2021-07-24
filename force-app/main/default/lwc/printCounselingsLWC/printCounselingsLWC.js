@@ -1,6 +1,6 @@
 import { LightningElement, track, api } from 'lwc';
 import { NavigationMixin } from 'lightning/navigation' ;
-
+/*test message */
 export default class PrintCounselingsLWC extends NavigationMixin(LightningElement){
     today = new Date();
     @api recordId
@@ -11,7 +11,7 @@ export default class PrintCounselingsLWC extends NavigationMixin(LightningElemen
         this.end_date = (this.end_date) ? this.end_date : this.addDays(this.today,1).toJSON().slice(0,10);
         this.range = this.diff(this.start_date,this.end_date);
     }
-    
+
     addDays = (sd,days) => {
         const d = new Date(Number(sd));
         d.setDate(sd.getDate() + days);
