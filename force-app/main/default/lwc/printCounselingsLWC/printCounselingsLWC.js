@@ -6,13 +6,12 @@ export default class PrintCounselingsLWC extends NavigationMixin(LightningElemen
     @api recordId
     @track start_date;
     @track end_date;
-
     connectedCallback() {
         this.start_date = (this.start_date) ? this.start_date : this.today.toJSON().slice(0,10);
         this.end_date = (this.end_date) ? this.end_date : this.addDays(this.today,1).toJSON().slice(0,10);
         this.range = this.diff(this.start_date,this.end_date);
     }
-
+    
     addDays = (sd,days) => {
         const d = new Date(Number(sd));
         d.setDate(sd.getDate() + days);
