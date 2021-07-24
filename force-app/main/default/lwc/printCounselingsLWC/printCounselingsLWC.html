@@ -1,0 +1,18 @@
+<template>
+    <div class="slds-align_absolute-center">
+    <lightning-card  class="slds-align_absolute-center">
+        <div class="slds-text-heading_small slds-align_absolute-center">Please select date range</div></br>
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col slds-m-left_large">
+                <lightning-input type="date" name="startdate" class="startdate" label="From" value={start_date} onchange={handleDateChange} required ></lightning-input>
+            </div>
+            <div class="slds-col slds-m-right_large">
+                <lightning-input type="date" name="enddate" class="enddate" label="To"  value={end_date} onchange={handleDateChange} required></lightning-input>
+            </div>
+        </div></br>
+        <div class="slds-align_absolute-center"> 
+            <lightning-button variant="brand" label="Print" title="Print" onclick={clickHandle} class="slds-m-center_x-small"></lightning-button>
+        </div>
+    </lightning-card>
+</div>
+</template>

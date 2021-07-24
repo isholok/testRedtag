@@ -1,0 +1,29 @@
+<aura:component implements="force:lightningQuickAction,force:hasRecordId" >
+    <aura:attribute name="fromDate" type="Date"/>
+    <aura:attribute name="toDate" type="Date"/>
+    <aura:attribute name="dateValidationError" type="boolean"/>
+    <fieldset class="slds-box slds-box_x-small slds-theme_default slds-align_absolute-center">
+        <legend id="daterangeform" class="slds-text-heading_small
+                                          slds-p-vertical_medium slds-align_absolute-center">
+            Please select date range
+        </legend>
+        <form class="slds-form slds-align_absolute-center">
+            <div class="slds-form_horizontal slds-form slds-grid slds-wrap">
+                <lightning:input aura:id="datesrange" id="datefield1" class="slds-size_1-of-2" type="date" name="input2" label="From" value="{!v.fromDate}" required="true"/>
+                <lightning:input aura:id="datesrange" id="datefield2" class="slds-size_1-of-2" type="date" name="input2" label="To" value="{!v.toDate}" required="true" onchange="{!c.dateCheck}"/>
+                <lightning:button disabled="{!v.dateValidationError}"
+                                  label="Print"
+                                  class="slds-m-top_medium slds-align_absolute-center"
+                                  variant="brand"
+                                  onclick="{!c.handleClick}"/>
+            </div>
+        </form>
+    </fieldset>
+    <div>
+        <aura:if isTrue="{!v.dateValidationError}">
+            <div class="slds-text-color_error slds-align_absolute-center">
+                Second Date must be greater then First Date
+            </div>
+        </aura:if>
+    </div>
+</aura:component>
